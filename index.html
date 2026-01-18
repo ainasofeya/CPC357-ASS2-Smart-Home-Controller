@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Smart Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/home.png">
+</head>
+<body>
+    <div class="card">
+        <h2 class="app-title">
+    <img src="https://cdn-icons-png.flaticon.com/512/6890/6890321.png" alt="Smart Home Icon">
+    <span>Smart Home</span>
+</h2>
+        <input id="email" type="email" placeholder="Email Address">
+        <input id="pass" type="password" placeholder="Password">
+        <button class="btn-primary" onclick="login()">Login</button>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+
+        const firebaseConfig = { 
+            apiKey: "AIzaSyDlSQY5MM6fpllmbE5G72M1GDuUJSw8TnM", 
+            databaseURL: "https://cpc357-481008-default-rtdb.asia-southeast1.firebasedatabase.app/" 
+        };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+
+        window.login = () => {
+            const email = document.getElementById('email').value;
+            const pass = document.getElementById('pass').value;
+            signInWithEmailAndPassword(auth, email, pass)
+                .then(() => window.location.href = "controls.html")
+                .catch(err => alert(err.message));
+        };
+    </script>
+</body>
+</html>
