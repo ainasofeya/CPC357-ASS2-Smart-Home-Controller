@@ -1,4 +1,4 @@
-Smart Home Controller
+** Smart Home Controller
 An event-driven IoT system that provides remote lighting control and an emergency siren alert. This project demonstrates a complete 5-layer IoT architecture integrating an ESP32 edge device with Google Cloud Platform (GCP) and a web-based dashboard.
 
 🚀 Features
